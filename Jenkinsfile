@@ -3,7 +3,9 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/kangsang3073/myapp.git'
+                git branch: 'main', 
+                    credentialsId: 'kangsang3073', 
+                    url: 'https://github.com/kangsang3073/myapp.git'
             }
         }
         stage('Build') {
