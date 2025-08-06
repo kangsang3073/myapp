@@ -10,14 +10,14 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'docker build -t myusername/myapp:latest .'
+                sh 'docker build -t kangsanghyun/myapp:latest .'
             }
         }
         stage('Push') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     sh 'echo $PASSWORD | docker login -u $USERNAME --password-stdin'
-                    sh 'docker push myusername/myapp:latest'
+                    sh 'docker push kangsanghyun/myapp:latest'
                 }
             }
         }
